@@ -1,0 +1,17 @@
+{
+  "name": "houdass/codepatternshub",
+  "description": "This package contains the code patterns hub source code",
+  "minimum-stability": "stable",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "houdaslassi",
+      "email": "email@example.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  }
+}
