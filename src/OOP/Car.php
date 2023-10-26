@@ -11,6 +11,8 @@ abstract class Car
     protected string $numberOfDoors;
     protected bool $isOn = false;
 
+    protected CarDashboard $dashboard;
+
 
     /**
      * @param int $speed
@@ -35,6 +37,17 @@ abstract class Car
     public abstract function park(): bool;
 
 
+    public function installDashboard(CarDashboard $dashboard): void
+    {
+        $this->dashboard = $dashboard;
+    }
 
+    public function carInfo(): string {
+        if($this->dashboard){
+            return $this->dashboard->readDashboard();
+        }else{
+            return "Car is not installed";
+        }
+    }
 
 }
