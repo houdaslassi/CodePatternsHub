@@ -8,6 +8,7 @@ use App\OOP\CarDashboard;
 use App\OOP\Employee;
 use App\OOP\Salary;
 use App\OOP\OrganizationSalary;
+use App\OOP\RelationShip\Printer\HTMLPrinter;
 
 /*$hyundai = new \App\OOP\Hyundai(100, 'red', 'manual', 'hyundai', '4');
 $dashboard = new CarDashboard();
@@ -18,9 +19,18 @@ $hyundai->installDashboard($dashboard);
 var_dump($hyundai->carInfo());*/
 //var_dump($hyundai->accelerate(100));
 
-$houda = new Employee('houda',30,new OrganizationSalary(1000,0.2,0,0,0,0,0.1));
-var_dump($houda->getSalary()->calculateSalary());
+//$houda = new Employee('houda',30,new OrganizationSalary(1000,0.2,0,0,0,0,0.1));
+//var_dump($houda->getSalary()->calculateSalary());
+
 //$order = new Order('casa', 'meknes', 10);
 //$deliveredOrder = $order->deliverOrder($hyundai);
 
 //var_dump($deliveredOrder);
+
+$teacher = new \App\OOP\RelationShip\Teacher();
+$teacher->name = 'houda';
+$printer = new HTMLPrinter();
+var_dump($teacher->print($printer));
+unset($teacher);
+$printer->setStringToBePrinted('test text to see the unset ....');
+var_dump($printer->printToScreen());
