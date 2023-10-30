@@ -9,6 +9,8 @@ use App\OOP\Employee;
 use App\OOP\Salary;
 use App\OOP\OrganizationSalary;
 use App\OOP\RelationShip\Printer\HTMLPrinter;
+use App\OOP\RelationShip\MathTeacher;
+use App\OOP\RelationShip\Student;
 
 /*$hyundai = new \App\OOP\Hyundai(100, 'red', 'manual', 'hyundai', '4');
 $dashboard = new CarDashboard();
@@ -26,11 +28,21 @@ var_dump($hyundai->carInfo());*/
 //$deliveredOrder = $order->deliverOrder($hyundai);
 
 //var_dump($deliveredOrder);
-
-$teacher = new \App\OOP\RelationShip\Teacher();
+//**********
+/*$teacher = new \App\OOP\RelationShip\Teacher();
 $teacher->name = 'houda';
 $printer = new HTMLPrinter();
 var_dump($teacher->print($printer));
 unset($teacher);
 $printer->setStringToBePrinted('test text to see the unset ....');
-var_dump($printer->printToScreen());
+var_dump($printer->printToScreen());*/
+//*****
+
+$moha = new MathTeacher('moha');
+$alaa = new \App\OOP\RelationShip\LogicTeacher('alaa');
+$dahou = new Student('dahou');
+$dahou->assignTemporaryTeacher($moha);
+$moha->evaluateHomeWorkScore($dahou);
+var_dump('Dahou was assigned this homework by '.$moha->getName().' and he '.$moha->evaluateHomeWorkScore($dahou));
+$dahou->assignTemporaryTeacher($alaa);
+var_dump('Dahou was assigned this homework by '.$alaa->getName().' and he '.$alaa->evaluateHomeWorkScore($dahou));
